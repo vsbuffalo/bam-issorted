@@ -20,7 +20,7 @@ int main(int argc, const char *argv[]) {
     cerr << "error: cannot open file '" << filename << "'" << endl;
   }
 
-  while (reader.GetNextAlignmentCore(al)) {
+  while (reader.GetNextAlignment(al)) {
     if (al.IsMapped()) {
       if (al.RefID != last_refid) {
         last_pos = -1;
@@ -39,6 +39,7 @@ int main(int argc, const char *argv[]) {
             << "', read name '" << al.Name << "'" << endl;
           exit(1);
         }
+        last_pos = al.Position;
       }
     }
   }
