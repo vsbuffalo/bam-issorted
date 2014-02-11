@@ -18,6 +18,7 @@ int main(int argc, const char *argv[]) {
 
   if (!reader.Open(filename)) {
     cerr << "error: cannot open file '" << filename << "'" << endl;
+    exit(1);
   }
 
   while (reader.GetNextAlignment(al)) {
